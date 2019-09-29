@@ -45,7 +45,16 @@ class TestInverted(unittest.TestCase):
 
     def test_inverted_2(self):
         # REPLACE THIS from your test case from section 3.1
-        self.assertTrue(False)
+        im = lab.Image(1, 4, [18, 83, 151, 219])
+        result = im.inverted()
+        expected = lab.Image(1, 4, [237, 172, 104, 36])
+        self.assertEqual(result, expected)
+
+    def test_inverted_3(self):
+        im = lab.Image(2, 4, [255, 0, 1, 254, 255, 0, 1, 254])
+        result = im.inverted()
+        expected = lab.Image(2, 4, [0, 255, 254, 1, 0, 255, 254, 1])
+        self.assertEqual(result, expected)
 
     def test_inverted_images(self):
         for fname in ('mushroom', 'twocats', 'chess'):
